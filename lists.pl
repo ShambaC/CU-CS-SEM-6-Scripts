@@ -13,6 +13,9 @@ show2(X, [_, X | _]).
 % Show that the first and second element are same
 same1_2([X, X | _]).
 
+% First three elements same
+same3([X, X, X | _]).
+
 % Add element to the head of the list
 % param: X => element to be added, L => list to be manipulated
 add_1_head(X, L, [X | L]).
@@ -23,6 +26,9 @@ add_1_pos_2(X, [H | T], [H, X | T]).
 % Last element of the list
 show_last(X, [X | []]).
 show_last(X, [_ | T]) :- show_last(X, T).
+
+show_last3(X, [X, _ | []]).
+show_last3(X, [_ | T]) :- show_last3(X, T).
 
 % Second last element of the list
 show_2_last(X, [_ | [X, _]]).
@@ -55,7 +61,7 @@ merge([H | T], L1, [H | L2]) :- merge(T, L1, L2).
 check_1_2([H, H]).
 check_1_2([H, _ | T]) :- check_1_2([H | T]).
 
-% Even elements of a list
+% Even positioned elements of a list
 show_even([_]) :- write("").
 show_even([]) :- write("").
 show_even([_, H | T]) :-
@@ -63,7 +69,7 @@ show_even([_, H | T]) :-
     nl,
     show_even(T).
 
-% Sum of even elements of a list
+% Sum of even positioned elements of a list
 sum_even([], 0).
 sum_even([_], 0).
 sum_even([_, H | T], Sum) :-
