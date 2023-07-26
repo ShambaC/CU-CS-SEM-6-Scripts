@@ -103,6 +103,15 @@ fibo(X, N) :-
     fibo(X2, N2),
     X is X1 + X2.
 
+% Fibonacci series
+fibo_series(N) :-
+    N >= 0,
+    fibo(X, N),
+    write(X),
+    nl,
+    N1 is N - 1,
+    fibo_series(N1).
+    
 % Factorial of a number
 fac(1, 1).
 fac(N, X) :-
