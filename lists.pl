@@ -136,3 +136,12 @@ order_asc([_]).
 order_asc([A, B | T]) :-
     A =< B,
     order_asc([B | T]).
+
+% Remove duplicate elements from a list
+remove_duplicates([],[]).
+remove_duplicates([H|T],Result):-
+    mem(H,T),
+    remove_duplicates(T,Result).
+
+remove_duplicates([H|T],[H|Result]):-
+    remove_duplicates(T,Result).
