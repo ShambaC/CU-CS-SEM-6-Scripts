@@ -65,3 +65,21 @@ sum_even([_, H | T], Sum) :-
 % Reverse a list
 rev_list([], X, X).
 rev_list([H | T], X, L) :- rev_list(T, X, [H | L]).
+
+% Maximum in a list
+maxlist([Max], Max).
+maxlist([A, B | T], Max) :-
+    A > B,
+    maxlist([A | T], Max).
+maxlist([A, B | T], Max) :-
+    A =< B,
+    maxlist([B | T], Max).
+
+% Minimum in a list
+minlist([Min], Min).
+minlist([A, B | T], Min) :-
+    A < B,
+    minlist([A | T], Min).
+minlist([A, B | T], Min) :-
+    A >= B,
+    minlist([B | T], Min).
