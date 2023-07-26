@@ -28,6 +28,14 @@ show_last(X, [_ | T]) :- show_last(X, T).
 show_2_last(X, [_ | [X, _]]).
 show_2_last(X, [_ | T]) :- show_2_last(X, T).
 
+% Last two elements of the list
+show_last_2([A, B]) :-
+    write(A),
+    nl,
+    write(B).
+show_last_2([_ | T]) :-
+    show_last_2(T).
+
 % Display all elements of a list
 show_all([]) :- write(" ").
 show_all([H | T]) :-
@@ -83,3 +91,42 @@ minlist([A, B | T], Min) :-
 minlist([A, B | T], Min) :-
     A >= B,
     minlist([B | T], Min).
+
+% Show even elements in a list
+show_even_e([]) :- write("").
+show_even_e([H | T]) :-
+    H mod 2 =:= 0,
+    write(H),
+    nl,
+    show_even_e(T).
+show_even_e([H | T]) :-
+    H mod 2 =\= 0,
+    show_even_e(T).
+
+% Count odd elements
+count_odd([], 0).
+count_odd([H | T], Count) :-
+    H mod 2 =\= 0,
+    count_odd(T, Count1),
+    Count is Count1 + 1.
+count_odd([H | T], Count) :-
+    H mod 2 =:= 0,
+    count_odd(T, Count1),
+    Count is Count1.
+
+% Sum of even elemetns
+sum_even_e([], 0).
+sum_even_e([H | T], Sum) :-
+    H mod 2 =:= 0,
+    sum_even_e(T, Sum1),
+    Sum is Sum1 + H.
+sum_even_e([H | T], Sum) :-
+    H mod 2 =\= 0,
+    sum_even_e(T, Sum1),
+    Sum is Sum1.
+
+% Check if a list is ordered (ascending)
+order_asc([_]).
+order_asc([A, B | T]) :-
+    A =< B,
+    order_asc([B | T]).
