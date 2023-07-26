@@ -42,3 +42,26 @@ mem(X, [_ | T]) :- mem(X, T).
 % Merge two lists into a 3rd list           //This absolutely sucks
 merge([], L1, L1).
 merge([H | T], L1, [H | L2]) :- merge(T, L1, L2).
+
+% Check if first and last elements are same
+check_1_2([H, H]).
+check_1_2([H, _ | T]) :- check_1_2([H | T]).
+
+% Even elements of a list
+show_even([_]) :- write("").
+show_even([]) :- write("").
+show_even([_, H | T]) :-
+    write(H),
+    nl,
+    show_even(T).
+
+% Sum of even elements of a list
+sum_even([], 0).
+sum_even([_], 0).
+sum_even([_, H | T], Sum) :-
+    sum_even(T, Sum1),
+    Sum is Sum1 + H.
+
+% Reverse a list
+rev_list([], X, X).
+rev_list([H | T], X, L) :- rev_list(T, X, [H | L]).
