@@ -145,3 +145,19 @@ remove_duplicates([H|T],Result):-
 
 remove_duplicates([H|T],[H|Result]):-
     remove_duplicates(T,Result).
+
+% Check if two lists are of same length
+list_size(A, B) :-
+    length(A, Size1),
+    length(B, Size2),
+    Size1 =:= Size2.
+
+% two consecutive elements in a list
+consec_list(X, Y, [X, Y | T]).
+    consec_list(X, Y, [_ | T]) :-
+        consec_list(X, Y, T).
+
+% A list is a sub list of a list
+sublist([], _).
+sublist([X|XS], [X|YS]) :- sublist(XS, YS).
+sublist([X|XS], [_|YS]) :- sublist([X|XS], YS).
