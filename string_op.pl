@@ -22,3 +22,9 @@ substr(X, S) :-
 % Check the data type
 check_for_num(X) :- number(X).  % check_for_number(10) -> true.
 check_for_str(X) :- string(X).  % check_for_str("hello") -> true.
+
+% Append two strings
+appendString(X, Y, Z) :-
+    string_to_atom(X, XA),
+    string_to_atom(Y, YA),
+    atom_concat(XA, YA, Z).
