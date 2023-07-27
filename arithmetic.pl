@@ -111,7 +111,7 @@ fibo_series(N) :-
     nl,
     N1 is N - 1,
     fibo_series(N1).
-    
+
 % Factorial of a number
 fac(1, 1).
 fac(N, X) :-
@@ -119,3 +119,17 @@ fac(N, X) :-
     N1 is N - 1,
     fac(N1, X1),
     X is X1 * N.
+
+% Minimum of three numbers
+min_3(A, B, C) :-
+    A =< B,
+    A =< C,
+    write(A).
+min_3(A, B, C) :-
+    B =< A,
+    B =< C,
+    write(B).
+min_3(A, B, C) :-
+    C =< B,
+    C =< A,
+    write(C).
