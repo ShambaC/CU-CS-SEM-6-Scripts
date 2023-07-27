@@ -98,6 +98,18 @@ minlist([A, B | T], Min) :-
     A >= B,
     minlist([B | T], Min).
 
+% Second smallest element in list
+rem_all_X(_, [], []).
+rem_all_X(X, [X | T], T2) :-
+    rem_all_X(X, T, T2).
+rem_all_X(X, [H | T], [H | T2]) :-
+    X \= H,
+    rem_all_X(X, T, T2).
+min_2(L, X) :-
+    minlist(L, Min),
+    rem_all_X(Min, L, L2),
+    minlist(L2, X).
+
 % Show even elements in a list
 show_even_e([]) :- write("").
 show_even_e([H | T]) :-
@@ -161,3 +173,18 @@ consec_list(X, Y, [X, Y | T]).
 sublist([], _).
 sublist([X|XS], [X|YS]) :- sublist(XS, YS).
 sublist([X|XS], [_|YS]) :- sublist([X|XS], YS).
+
+select_element(Element, List, Remaining) :-
+    merge(Before, [Element | After], List),
+    merge(Before, After, Remaining).
+
+% Delete first occurence of an element from a list
+rem_1(_, [], []).
+rem_1([], []).
+rem_1([H | T], [H | T2]) :-
+    rem_1(T, T2).
+rem_1(X, [X | T], T2) :-
+    rem_1(T, T2).
+rem_1(X, [H | T], [H | T2]) :-
+    X \= H,
+    rem_1(X, T, T2).
