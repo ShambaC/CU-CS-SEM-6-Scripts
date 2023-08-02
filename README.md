@@ -20,3 +20,8 @@ File names should indicate that. If it doesn't find out yourself by reading the 
 
 ### Do you know me ?
 If not then how the hell did you even get here ? ~PLEASE IGNORE THE REPO. THANK YOU.~
+
+# OBLIGATORY NOTE OF ARCHIVAL
+I completely forgot that I need to archive this repo. The exams went good for me and all of my friends. But that didn't reduce the hatred I have for PROLOG even a single bit.
+
+You guys know what. It is kinda sad to archive this repo. This is the last one for my college. A few days from now, I will have my project presentation and that will be the last day of my college. I am gonna miss a few of my friends. I made some nice friends in the college. It was fun. 1 and a half year was fun. The rest half I was playing games at my home lol. Good bye guys. The next time I make a repo like this would be in quite a while for my masters. I don't know if I will make it. Whether I will make friends in Uni. I don't know. Let's see. Wish me luck guys.
